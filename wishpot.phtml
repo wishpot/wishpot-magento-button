@@ -1,0 +1,30 @@
+<?php $_product = $this->getProduct() ?>
+
+<div class="wishpot_form">
+  <noscript>Visit <a href="http://www.wishpot.com/" title="Wish list, wedding registry, baby registry" target="_blank">Wishpot add this item to your <b>wish list</b></a>.</noscript>
+  <!--the partner key-->
+  <input name="pkey" value="YOUR_PARTNER_KEY" type="hidden" />
+  <input name="WishUrl" value="<?php echo $_product->getProductUrl() ?>" type="hidden" />
+  <input name="WishTitle" value="<?php echo $_product->getName() ?>" type="hidden" />
+  <input name="Price" value="<?php echo $_product->getFinalPrice() ?>" type="hidden" />
+  <input name="Sku" value="<?php echo $_product->getId() ?>" type="hidden" />
+  <input name="Tags" value="<?php echo $_product->getCategory() ?>" type="hidden" />
+  <input id="WishpotQuantity" name="Quantity" value="" type="hidden" />
+
+  <!-- Display the image source and size for the product (size required) -->
+  <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+  	<input name="ImgSrc" value="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" type="hidden" />
+  <?php endif; ?>
+
+  <script type="text/javascript">
+	function updateWishpotQty(){
+		try
+		{
+			$('WishpotQuantity').value = Form.Element.getValue('qty');
+		}catch(ex){}
+	}
+  </script>
+  
+  <!-- There are a few buttons to choose from.  Simply replace the src attribute -->
+  <a href="http://www.wishpot.com/" onClick="updateWishpotQty(); if(document.getElementById){window.WISHPOT_FORM=this.parentNode;var x=document.getElementsByTagName('head').item(0);var o=document.createElement('script');if(typeof(o)!='object') o=document.standardCreateElement('script');o.setAttribute('src',(('https:' == document.location.protocol) ? 'https' : 'http')+'://www.wishpot.com/scripts/bm.js?v=100');o.setAttribute('type','text/javascript');x.appendChild(o);} return false;" title="Add to your universal wish list or wedding registry" target="_blank"><img border="0" src="http://www.wishpot.com/img/buttons/addtowishpot139px26px.png" alt="Add to Wishpot Wish List" /></a>
+</div>
