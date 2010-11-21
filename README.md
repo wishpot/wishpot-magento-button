@@ -1,5 +1,7 @@
 This plugin allows you to add an "Add to Wishpot" button to Magento.
 
+Need help? Developer forum is <a href="http://support.wishpot.com/discussions/developers">here</a>
+
 To install:
 
  1. Copy the wishpot.phml file to your /frontend/base/default/template/catalog/product/view folder
