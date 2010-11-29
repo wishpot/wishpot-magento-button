@@ -4,8 +4,8 @@ Need help? Developer forum is <a href="http://support.wishpot.com/discussions/de
 
 To install:
 
- 1. Copy the wishpot.phml file to your /frontend/base/default/template/catalog/product/view folder
- 2. Add the following line to your /frontend/base/default/layout/catalog.xml file:
+ 1. Copy the wishpot.phml file to your /frontend/base/[TEMPLATE_NAME]/template/catalog/product/view folder
+ 2. Add the following line to your /frontend/base/[TEMPLATE_NAME]/layout/catalog.xml file:
         <block type="catalog/product_view" name="product.info.wishpot" as="wishpot" template="catalog/product/view/wishpot.phtml" />
  3. Edit /frontend/base/default/template/catalog/product/view.phtml
 
